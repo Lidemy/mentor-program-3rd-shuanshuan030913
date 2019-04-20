@@ -17,7 +17,7 @@
 
 #### 終於可以開始交作業囉
 
-1.git branch weekN ( 交作業之前永遠要記得新增 branch )
+1. git branch weekN ( 交作業之前永遠要記得新增 branch )
 
 在 Cmder 裡面
 
