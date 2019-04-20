@@ -38,10 +38,10 @@
 
 #### 回到 Cmder
 
-15. git checkout master ( 切換到主要分支 )
-16. git pull origin master ( 把版本更新至和 GitHub 同步 )
-17. git branch -d week1 ( 把本機端的分支刪除 )
-18. 完成本次作業繳交
+16. git checkout master ( 切換到主要分支 )
+17. git pull origin master ( 把版本更新至和 GitHub 同步 )
+18. git branch -d week1 ( 把本機端的分支刪除 )
+19. 完成本次作業繳交
 
 #### 須知
 
