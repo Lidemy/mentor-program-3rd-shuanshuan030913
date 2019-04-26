@@ -20,6 +20,11 @@ module.exports = {
     'react',
   ],
   rules: {
-    "no-console": "off"
+    "no-console": "off",
+    'linebreak-style': ["error", "windows"],
+    "no-tabs":"off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "padded-blocks": "off",
   },
 };
