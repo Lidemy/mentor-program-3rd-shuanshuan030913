@@ -1,11 +1,13 @@
 function printStars(n) {
+  
+  let str = '';
 
-  	var str = "";
+  for (let i = 1; i < 30 && i <= n; i++) {
+    str += '*\n';
+  }
 
-	for (var i = 1; i < 30 && i <= n; i++) {
-		str += "*" + "\n";
-	}
-	console.log(str);
+  console.log(str);
+  
 }
 
 printStars(1);
