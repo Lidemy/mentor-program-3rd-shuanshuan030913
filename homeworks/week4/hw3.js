@@ -1,8 +1,6 @@
 const request = require('request');
 const process = require('process');
 
-console.log(process.argv);
-
 function outBook(first, second, newName) {
   if (first === 'list') {
     request(
@@ -41,7 +39,8 @@ function outBook(first, second, newName) {
         },
       },
       (error, response, body) => {
-        console.log(body);
+        const json = JSON.parse(body);
+        console.log(`${json.id} ${json.name}`);
       },
     );
   }
