@@ -26,5 +26,6 @@ module.exports = {
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "padded-blocks": "off",
     "linebreak-style": "off",
+    "no-underscore-dangle": "off",
   },
 };
