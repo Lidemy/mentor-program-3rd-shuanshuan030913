@@ -1,0 +1,48 @@
+.link{
+	position: absolute;
+	top: 200px;
+    left: 30px;
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 1px solid #c2c2c2;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.link:hover{
+	top: 195px;
+    left: 25px;
+	width: 90px;
+	height: 90px;
+}
+.link__clap{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.link__clap:after{
+	display: block;
+	content: "👏";
+}
+.article{
+	max-width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.article__title{
+	font-size: 3rem;
+}
+.article__p{
+	font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 990px) {
+	.link{
+		display: none;
+	}
+}
