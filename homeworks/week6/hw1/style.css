@@ -23,11 +23,11 @@ a {
 	display: inline-block;
 	font-size: 1.2rem;
 }
-.header__nav__link{
+.header__link{
 	color: #c7c7c7;
 	margin-right: 10px;
 }
-.header__nav__link:hover{
+.header__link:hover{
 	color: #fff;
 }
 
