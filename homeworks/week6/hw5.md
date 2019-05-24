@@ -17,7 +17,7 @@
 
 * `inline` 讓標籤內容可以排在同一個橫排內，margin 和 padding 只對自己有作用（左右可以影響左右元素），影響不到上下行其他物件
 * `block` 自己獨佔一排
-* `inline` inline 和 block 的綜合體，讓物件可以並排又可以占用高度，但是兩個物件之間會有空間，若有需要必須另外寫樣式去清除空白
+* `inline` inline 和 block 的綜合體，讓物件可以並排又可以占用高度，會因為 html 中間的空白而產生空白，這點要注意
 
 ## 請問 position: static, relative, absolute 跟 fixed 的差別是什麼？
 
