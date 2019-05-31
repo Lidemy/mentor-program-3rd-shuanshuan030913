@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿估狗表單</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body class="relative">
+  <header class="bg"></header>
+  <main>
+    <form class="form">
+
+      <h1 class="form__title pl-20">程式導師實驗計畫第三期報名表單</h1>
+      <p class="pl-20">詳情請參考：
+        <a class="form__title__link" href="https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3">https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3</a>
+      </p>
+      <p class="pl-20">填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔</p>
+      <p class="red pl-20"><sup class="sup">*</sup>必填</p>
+
+      <div class="form__row require">
+        <h2 class="form__sub-title">電子郵件地址<sup class="sup">*</sup></h2>
+        <div class="relative">
+          <input class="form__input" type="email" name="email" title="電子郵件地址" placeholder="你的電子郵件">
+          <div class="form__underline"></div>
+        </div>
+      </div>
+
+      <div class="form__row require">
+        <h2 class="form__sub-title">暱稱<sup class="sup">*</sup></h2>
+        <p>該如何稱呼你</p>
+        <div class="relative">
+          <input class="form__input" type="text" name="name" title="請填寫這個欄位" placeholder="您的回答">
+          <div class="form__underline"></div>
+        </div>
+      </div>
+
+      <div class="form__row require">
+        <h2 class="form__sub-title">報名類型<sup class="sup">*</sup></h2>
+        <div class="form__input form__input--radio" id="checkingBox">
+          <label class="form__label">
+            從零到一基礎班（兩個月後開始收保證金 5000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）
+            <input class="form__radio" type="radio" id="formZero" name="radiogroup" value="formZero">
+            <span class="form__checkmark"></span>
+          </label>
+          <label class="form__label">
+            在職工程師加強班（兩個月後開始收保證金 5000，三個月時收學費 35000 元台幣，被淘汰不退還）
+            <input class="form__radio" type="radio" id="improve" name="radiogroup" value="improve">
+            <span class="form__checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form__row require">
+        <h2 class="form__sub-title">現在的職業<sup class="sup">*</sup></h2>
+        <p>範例：學生、前端工程師、待業中、業務</p>
+        <div class="relative">
+          <input class="form__input" type="text" name="job" title="請填寫這個欄位" placeholder="您的回答">
+          <div class="form__underline"></div>
+        </div>
+      </div>
+
+      <div class="form__row require">
+        <h2 class="form__sub-title">怎麼知道這個計畫的？<sup class="sup">*</sup></h2>
+        <div class="relative">
+          <input class="form__input form__input--full" type="text" name="howKown" title="請填寫這個欄位" placeholder="您的回答">
+          <div class="form__underline form__underline--full"></div>
+        </div>
+      </div>
+
+      <div class="form__row require">
+        <h2 class="form__sub-title">是否有程式相關背景？<sup class="sup">*</sup></h2>
+        <p>範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...</p>
+        <div class="relative">
+          <input class="form__input form__input--full" type="text" name="experence" title="請填寫這個欄位" placeholder="您的回答">
+          <div class="form__underline form__underline--full"></div>
+        </div>
+      </div>
+
+      <div class="form__row">
+        <h2  class="form__sub-title">其他</h2>
+        <p>任何你想說的</p>
+        <div class="relative">
+          <input class="form__input form__input--full" type="text" name="other" title="請填寫這個欄位" placeholder="您的回答">
+          <div class="form__underline form__underline--full"></div>
+        </div>
+      </div>
+
+      <div class="pl-20">
+        <input class="form__submit" type="submit" name="submit">
+        <p class="form__alert"><small>請勿利用 Google 表單送出密碼。</small></p>
+      </div>
+
+    </form>
+    <footer>
+      <div class="footer__link">
+      Google 並未認可或建立這項內容。
+      <a href="#">檢舉濫用情形</a> 
+      -
+      <a href="#">服務條款</a>
+      </div>
+      <div class="footer__logo"><strong>Google</strong> 表單</div>
+    </footer>
+  </main>
+  <div class="info">！</div>
+  <script src="./main.js"></script>
+</body>
+</html>
