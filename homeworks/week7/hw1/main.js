@@ -154,5 +154,5 @@ bg.addEventListener('click', gameStart);
 // 鍵盤事件
 window.addEventListener('keydown', (e) => {
   if (e.code === 'Space') { gameStart(); }
-  if (e.code === 'KeyR') { playAgain(); }
+  if (e.code === 'KeyR') { playAgain(e); }
 });
