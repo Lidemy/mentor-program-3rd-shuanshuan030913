@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>計算機練習</title>
+  <style type="text/css">
+    section{
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    div{
+      margin: 30px 0;
+    }
+    table {
+      width: 90%;
+      table-layout: fixed;
+    }
+    span{
+      min-width: 16px;
+      display: inline-block;
+      text-align: center;
+    }
+    button{
+      background-color: #fff4e0;
+      border: 1px solid #e0d5c0;
+      border-radius: 2px;
+      padding: 2px 8px;
+      min-height: 27px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 18px;
+    }
+    button:hover {
+      background-color: #ffc37b;
+    }
+    button:focus {
+      outline: inherit;
+    }
+    input {
+      font-size: 18px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #e0d5c0;
+      border-radius: 2px;
+      padding: 5px 10px;
+    }
+    th input {
+      min-height: 50px;
+    }
+    td button{
+      width: 100%;
+      min-height: 50px;
+    }
+    .hightlight{
+      background-color: #ffe2c6;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="4">
+              <input value="0" id="InputCal" style="text-align: right;">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <button id="zero" class="hightlight">AC</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <button class="CalButton hightlight">/</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="NumberButton">7</button>
+            </td>
+            <td>
+              <button class="NumberButton">8</button>
+            </td>
+            <td>
+              <button class="NumberButton">9</button>
+            </td>
+            <td>
+              <button class="CalButton hightlight">*</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="NumberButton">4</button>
+            </td>
+            <td>
+              <button class="NumberButton">5</button>
+            </td>
+            <td>
+              <button class="NumberButton">6</button>
+            </td>
+            <td>
+              <button class="CalButton hightlight">-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="NumberButton">1</button>
+            </td>
+            <td>
+              <button class="NumberButton">2</button>
+            </td>
+            <td>
+              <button class="NumberButton">3</button>
+            </td>
+            <td>
+              <button class="CalButton hightlight">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button class="NumberButton">0</button>
+            </td>
+            <td>
+              <button class="NumberButton">.</button>
+            </td>
+            <td>
+              <button id="TotalB" class="hightlight">=</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="./main.js"></script>
+</body>
+</html>

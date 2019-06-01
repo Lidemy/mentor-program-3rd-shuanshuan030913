@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>反應力小遊戲</title>
+  <style type="text/css">
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      color: #332411;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .aside {    
+      position: fixed;
+      bottom: 0;
+      right: 5%;
+      background-color: rgba(255, 246, 155, 0.9);
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+    .aside h5 {    
+      font-size: 20px;
+      text-align: center;
+      margin: 0.5rem 0 0.8rem;
+    }
+    .aside p {
+      margin: 0.5rem;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .leader-board__list{
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 5px 20px 20px;
+    }
+    .leader-board__title{
+      text-align: center;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      border: inherit;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #fff69b;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="aside">
+    <h5>支援鍵盤</h5>
+    <p>空白鍵：點擊<p>
+    <p>R 鍵：重新開始</p>
+  </aside>
+  <main class="main"><h1>畫面變色時請點擊</h1></main>
+
+  <script src="./main.js"></script>
+</body>
+</html>

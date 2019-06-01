@@ -1,0 +1,233 @@
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+p {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.bg {
+  background-image: url(https://extendfertility.com/assets/uploads/blog/97/alarm-clock-art-background-1037993__large.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 278px;
+}
+main {
+  background-color: #f0f6ff;
+}
+
+.sup {
+  color: #e20000;
+  vertical-align: text-top;
+  margin: 0 2px;
+}
+.red {
+  color: #e20000;
+}
+.relative {
+  position: relative;
+}
+.pl-20 {
+  padding-left: 20px;
+}
+/*-------------- form------------ */
+
+.form {
+  position: relative;
+  top: -120px;
+  background-color: #fff;
+  width: 90%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  border-top: 8px solid #97b1c5;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.form__title {
+  font-size: 36px;
+  letter-spacing: -2px;
+}
+.form__title__link {
+  font-size: 13px;
+}
+.form__sub-title {
+  font-weight: normal;
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+}
+.form__sub-title + p{
+  margin-top: 3px;
+}
+.form__row {
+  padding: 12px 20px;
+  margin: 2px 0;
+  transition: all 0.3s;
+}
+.form__input {
+  border: inherit;
+  border-bottom: 1px solid #d0d0d0;
+  background-color: transparent;
+  margin-top: 16px;
+  width: 50%;
+  font-size: 15px;
+}
+.form__input:focus {
+  outline: inherit;
+}
+.form__underline {
+  position: absolute;
+  bottom: -1px;
+  left: 25%;
+  width: 0;
+  height: 2px;
+  background-color: #e20000;
+  transition: all 0.3s;
+}
+.form__input:focus + .form__underline {
+  left: 0;
+  width: 50%;
+}
+.form__input--full {
+  width: 100%;
+}
+.form__underline--full {
+  left: 50%;
+}
+.form__input--full:focus + .form__underline--full {
+  width: 100%;
+}
+.form__input--radio {
+  width: 100%;
+  border-bottom: inherit;
+}
+/* ---------- radio style ----------*/
+.form__label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin: 16px 0 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.form__radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.form__checkmark {
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  height: 18px;
+  width: 18px;
+  border: 2px solid rgba(0,0,0,0.54);
+  border-radius: 100%;
+}
+.form__radio:checked ~ .form__checkmark {
+  border-color: #e20000;
+}
+.form__checkmark:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: calc(50% - 4.5px);
+  top: calc(50% - 4.5px);
+  transition: all 0.3s;
+  border-radius: 50%;
+  transform: scale(0);
+}
+.form__radio:checked ~ .form__checkmark:after {
+  background-color: #e20000;
+  transform: scale(1);
+}
+/* ---------- radio style end----------*/
+.form__submit {
+  color: #fff;
+  background-color: #1a73e8;
+  border: inherit;
+  border-radius: 3px;
+  width: 90px;
+  line-height: 36px;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.form__alert {
+  margin-top: 28px;
+  color: #808080;
+}
+
+
+/*-------------- footer ------------ */
+
+footer {
+  color: rgba(0, 0, 0, 0.66);
+  text-align: center;
+  height: 35px;
+}
+footer a {
+  color: rgba(0, 0, 0, 0.66);
+}
+.footer__link {
+  position: relative;
+  top: -70px;
+  font-size: 12px;
+}
+.footer__logo {
+  position: relative;
+  top: -45px;
+  font-size: 24px;
+  opacity: 0.4;
+}
+
+.info {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  background: #555;
+  color: #fff;
+  width: 23px;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.info::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 19px;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #555;
+}
+
+/*-------------- javascript ------------ */
+
+.undo {
+  background-color: #ffe7e7;
+}
+.undo .form__input {
+  border-bottom: 1px solid #e20000;
+}
+
+.undo .form__input--radio {
+  border-bottom: inherit;
+}
+
+.warning{
+  color: #e20000;
+  margin-top: 5px;
+}
