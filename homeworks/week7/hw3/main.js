@@ -103,6 +103,7 @@ table.addEventListener('click', (e) => {
     } else {
       Total = evil(InputCal.value);
     }
+
     InputCal.value = `${InputCal.value} = ${Total}`;
   }
 });

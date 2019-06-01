@@ -51,7 +51,7 @@ function colorChange() {
 
 // 隨機變色
 let myColorClock;
-function RandomColor() { myColorClock = window.setTimeout(colorChange, getRandomInt(1, 2)); }
+function randomColor() { myColorClock = window.setTimeout(colorChange, getRandomInt(1, 2)); }
 
 // 重玩
 function playAgain(e) {
@@ -64,7 +64,7 @@ function playAgain(e) {
     mainBlock.removeChild(document.querySelector('.leader-board'));
   }
   loop = true;
-  RandomColor();
+  randomColor();
 }
 
 
@@ -145,7 +145,7 @@ function gameStart() {
 // ---------- 程式開跑 --------------
 
 // 隨機變色
-RandomColor();
+randomColor();
 
 
 // 滑鼠事件
@@ -154,5 +154,5 @@ bg.addEventListener('click', gameStart);
 // 鍵盤事件
 window.addEventListener('keydown', (e) => {
   if (e.code === 'Space') { gameStart(); }
-  if (e.code === 'KeyR') { playAgain(); }
+  if (e.code === 'KeyR') { playAgain(e); }
 });
