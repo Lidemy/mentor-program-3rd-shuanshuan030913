@@ -41,8 +41,12 @@ table.addEventListener('click', (e) => {
       }
 
     // if 有值，判斷是否為計算結果，是則重新輸入
-    } else if (restart === true) {
+    } else if (restart === true && NumText !== '.') {
       InputCal.value = NumText;
+
+    // 如果重新計算第一個點選小數點
+    } else if (restart === true && NumText === '.') {
+      InputCal.value = `0${NumText}`;
 
     // 如果已經有小數點又按下小數點
     } else if (point === true && NumText === '.') {
