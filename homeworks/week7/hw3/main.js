@@ -35,7 +35,7 @@ table.addEventListener('click', (e) => {
       
       // 小數點判斷
       if (NumText === '.') {
-        InputCal.value = `0 + ${NumText}`;
+        InputCal.value = `0${NumText}`;
       } else {
         InputCal.value = NumText;
       }
