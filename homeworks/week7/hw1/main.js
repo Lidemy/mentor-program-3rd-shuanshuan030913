@@ -51,7 +51,7 @@ function colorChange() {
 
 // 隨機變色
 let myColorClock;
-function RandomColor() { myColorClock = window.setTimeout(colorChange, getRandomInt(1, 2)); }
+function randomColor() { myColorClock = window.setTimeout(colorChange, getRandomInt(1, 2)); }
 
 // 重玩
 function playAgain(e) {
@@ -64,7 +64,7 @@ function playAgain(e) {
     mainBlock.removeChild(document.querySelector('.leader-board'));
   }
   loop = true;
-  RandomColor();
+  randomColor();
 }
 
 
@@ -145,7 +145,7 @@ function gameStart() {
 // ---------- 程式開跑 --------------
 
 // 隨機變色
-RandomColor();
+randomColor();
 
 
 // 滑鼠事件
