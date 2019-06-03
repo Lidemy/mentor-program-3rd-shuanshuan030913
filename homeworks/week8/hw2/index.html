@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>留言板</title>
+  <style type="text/css">
+    .board {
+      background-color: #fff;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #e8e8e8;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px #e8e8e8;
+      box-sizing: border-box;
+      font-family: "Microsoft JhengHei", sans-serif;
+    }
+    .title {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .card {
+      margin: 0 20px;
+      min-height: 70px;
+      padding: 10px 20px;
+      background-color: #fff6f6;
+      border-radius: 5px;
+      box-sizing: border-box;
+
+    }
+    .card + .card {
+      margin-top: 10px;
+    }
+    .form {
+      margin-top: 20px;
+    }
+    .form__textarea {
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: inherit;
+      border-top: 1px solid #e8e8e8;
+      font-size: 16px;
+    }
+    .form__textarea::placeholder {
+      color: #ffb0d0;
+      font-family: "Microsoft JhengHei", sans-serif;
+    }
+    .form__textarea:focus {
+      outline: inherit;
+    }
+    .form__btn {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: "Microsoft JhengHei", sans-serif;
+      color: #583c63;
+      height: 50px;
+      display: block;
+      width: 100%;
+      background-image: linear-gradient(to top, #c8c6fd 0%, #fbe9ed 100%);
+      border-radius:  0 0 5px 5px;
+      border: inherit;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <h1 class="title">留言板</h1>
+    <section class="board__data"></section>
+    <form class="form">
+      <textarea class="form__textarea" type="text" rows="4" placeholder="請輸入你的留言..."></textarea>
+      <button class="form__btn">送出</button>
+    </form>
+  </main>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
