@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>抽獎程式</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Microsoft JhengHei", sans-serif;
+    }
+    .lottery__button {
+      display: block;
+      margin: 0 auto;
+      border: inherit;
+      background-color: #dcdcdc;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: "Microsoft JhengHei", sans-serif;
+    }
+    .lottery__result {
+      display: none;
+    }
+    .lottery__result--p {
+      padding: 10px 20px;
+    }
+    .img {
+      background: center center no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+      width: 400px;
+      height: 200px;
+      margin: 30px auto 0;
+    }
+    .first {
+      background-color: #c2f7ff;
+    }
+    .first .lottery__result--p{
+      background-color: #fff8b8;
+      border-left: 5px solid #ff3a3a;
+    }
+    .first .img {
+      background-image: url('images/plane.png');
+      height: 150px;
+    }
+    .second .lottery__result--p{
+      background-color: #fff2d7;
+      border-left: 5px solid #ff3a3a;
+    }
+    .second .img {
+      background-image: url('images/tv.png');
+    }
+    .third .lottery__result--p{
+      background-color: #e4f9ff;
+      border-left: 5px solid #ff3a3a;
+    }
+    .third .img {
+      background-image: url('images/youtube.png');
+    }
+    .none {
+      background-color: #000;
+      color: #fff;
+    }
+    .none .img{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="lottery__box">
+    <button class="lottery__button">我要抽獎</button>
+  </div>
+  <div class="lottery__result">
+    <h3>抽獎結果：</h3>
+    <p class="lottery__result--p"></p>
+    <div class="img"></div>
+  </div>
+  <script type="text/javascript" src="main.js">
+  </script>
+</body>
+</html>

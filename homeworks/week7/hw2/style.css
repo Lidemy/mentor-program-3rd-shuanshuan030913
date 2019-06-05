@@ -138,10 +138,10 @@ main {
   content: "";
   display: block;
   position: absolute;
-  width: 9px;
-  height: 9px;
-  left: calc(50% - 4.5px);
-  top: calc(50% - 4.5px);
+  width: 10px;
+  height: 10px;
+  left: calc(50% - 5px);
+  top: calc(50% - 5px);
   transition: all 0.3s;
   border-radius: 50%;
   transform: scale(0);
