@@ -7,6 +7,7 @@ let result;
 function returnMessage(data) {
   // 清除重 load
   boardData.innerHTML = '';
+  console.log('data', data);
   for (let i = 0; i < data.length; i++) {
     result = document.createElement('div');
     result.classList.add('card');
@@ -27,7 +28,7 @@ function loadData(req) {
   req.onerror = () => {
     console.log('error');
   };
-  req.open('GET', 'https://lidemy-book-store.herokuapp.com/posts?_limit=20', true);
+  req.open('GET', 'https://lidemy-book-store.herokuapp.com/posts?_limit=20&_sort=id&_order=desc', true);
   req.send();
 }
 

@@ -3,7 +3,6 @@ const main = document.querySelector('main');
 let result;
 
 function returnStream(data) {
-  console.log('data', data);
   data.map((i) => {
     result = document.createElement('div');
     result.classList.add('card');
