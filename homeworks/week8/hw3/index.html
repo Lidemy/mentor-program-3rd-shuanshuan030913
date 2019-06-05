@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>再戰 Twitch API</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      background: url('./images/bg.jpg') center center no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      height: 100vh;
+      font-family: "Microsoft JhengHei", sans-serif;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card {  
+      width: calc(98% / 3);
+      margin-left: 1%;
+      margin-bottom: 1%;
+      background: #fff;
+    }
+    .card:nth-of-type(3n+1) {
+      margin-left: 0;
+    }
+    .card__preload {
+      height: 200px;
+    }
+    .card__info {
+      background-color: #666;
+      color: #fff;
+      display: flex;
+      position: relative;
+      padding: 10px 20px 10px 60px;
+    }
+    .card__info--logo {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      left: 13px;
+    }
+    .card__info--logo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .card__info--text {
+      display: inline-block;
+      margin: 0;
+      width: 100%;
+    }
+    .card__info--text .title {
+      font-size: 20px;
+      margin-bottom: 5px;
+      margin-left: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+    .card__info--text .author {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main></main>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

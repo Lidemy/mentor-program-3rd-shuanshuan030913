@@ -86,7 +86,7 @@ function gameStart() {
         }
       }
       // 1. 存成 array並排序
-      arr.push(timeScore);
+      arr.push(Number(timeScore));
       arr.sort();
 
       if (timeScore < 0.1) {
