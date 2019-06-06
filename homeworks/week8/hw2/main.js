@@ -1,13 +1,11 @@
-const request = new XMLHttpRequest();
 const boardData = document.querySelector('.board__data');
 const newData = document.querySelector('.form__textarea');
 const btn = document.querySelector('.form__btn');
 let result;
 
-function returnMessage(data) {
+function showMessage(data) {
   // 清除重 load
   boardData.innerHTML = '';
-  console.log('data', data);
   for (let i = 0; i < data.length; i++) {
     result = document.createElement('div');
     result.classList.add('card');
@@ -16,32 +14,34 @@ function returnMessage(data) {
   }
 }
 
-function loadData(req) {
-  req.onload = () => {
-    if (req.status >= 200 && req.status <= 400) {
-      const json = JSON.parse(req.response);
-      returnMessage(json);
+function loadData() {
+  const request = new XMLHttpRequest();
+  request.onload = () => {
+    if (request.status >= 200 && request.status < 400) {
+      const json = JSON.parse(request.response);
+      showMessage(json);
     } else {
-      console.log(req.status);
+      console.log(request.status);
     }
   };
-  req.onerror = () => {
+  request.onerror = () => {
     console.log('error');
   };
-  req.open('GET', 'https://lidemy-book-store.herokuapp.com/posts?_limit=20&_sort=id&_order=desc', true);
-  req.send();
+  request.open('GET', 'https://lidemy-book-store.herokuapp.com/posts?_limit=20&_sort=id&_order=desc', true);
+  request.send();
 }
 
 // ----- 程式開跑 -----
 
 // loading
-loadData(request);
+loadData();
 
 btn.addEventListener('click', (e) => {
+  const requestPost = new XMLHttpRequest();
   e.preventDefault();
-  request.open('POST', 'https://lidemy-book-store.herokuapp.com/posts', true);
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  request.send(`content=${newData.value}`);
+  requestPost.open('POST', 'https://lidemy-book-store.herokuapp.com/posts', true);
+  requestPost.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  requestPost.send(`content=${encodeURIComponent(newData.value)}`);
 
   // 刷新頁面
   const newRequest = new XMLHttpRequest();

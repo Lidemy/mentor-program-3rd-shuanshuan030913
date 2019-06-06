@@ -3,11 +3,13 @@ const main = document.querySelector('main');
 let result;
 
 function returnStream(data) {
-  data.map((i) => {
+  data.forEach((i) => {
     result = document.createElement('div');
     result.classList.add('card');
     result.innerHTML = `
-      <div class="card__preload" style="background: url(${i.preview.medium}) center center no-repeat; background-size: cover"></div>
+      <div class="card__preload">
+        <img src="${i.preview.medium}">
+      </div>
       <div class="card__info">
         <span class="card__info--logo">
           <img src="${i.channel.logo}">
@@ -18,12 +20,11 @@ function returnStream(data) {
         </dl>
       </div>`;
     main.appendChild(result);
-    return i;
   });
 }
 
 request.onload = () => {
-  if (request.status >= 200 && request.status <= 400) {
+  if (request.status >= 200 && request.status < 400) {
     const json = JSON.parse(request.response);
     returnStream(json.streams);
   } else {
