@@ -4,7 +4,7 @@ const button = document.querySelector('.lottery__button');
 const lotteryResult = document.querySelector('.lottery__result');
 const resultText = document.querySelector('.lottery__result--p');
 
-function prizeResult(prize) {
+function showPrizeResult(prize) {
 
   button.addEventListener('click', () => {
 
@@ -27,23 +27,23 @@ function prizeResult(prize) {
   });
 }
 
-function error() {
+function handleError() {
   button.addEventListener('click', () => {
     alert('系統不穩定，請再試一次');
-    window.location.replace(window.location.href);
+    window.location.reload();
   });
 }
 
 request.onload = () => {
-  if (request.status >= 200 && request.status <= 400) {
+  if (request.status >= 200 && request.status < 400) {
     const json = JSON.parse(request.response);
-    prizeResult(json.prize);
+    showPrizeResult(json.prize);
   } else {
-    error();
+    handleError();
   }
 };
 request.onerror = () => {
-  error();
+  handleError();
 };
 request.open('GET', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true);
 request.send();
