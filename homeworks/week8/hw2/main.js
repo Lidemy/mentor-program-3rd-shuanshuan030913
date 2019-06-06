@@ -41,7 +41,7 @@ btn.addEventListener('click', (e) => {
   e.preventDefault();
   requestPost.open('POST', 'https://lidemy-book-store.herokuapp.com/posts', true);
   requestPost.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  requestPost.send(`content=${newData.value}`);
+  requestPost.send(`content=${encodeURIComponent(newData.value)}`);
 
   // 刷新頁面
   const newRequest = new XMLHttpRequest();
