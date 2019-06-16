@@ -5,4 +5,4 @@
 |  id  |    integer      | 留言 id     |
 |  name  |    varchar(64)      | 留言暱稱     |
 |  context  |    text      | 留言內容     |
-|  time  |    timestamp      | 留言時間     |
+|  created_at  |    datetime      | 留言時間     |
