@@ -18,7 +18,8 @@
   $result = $conn->query($sql);
 
   if ($result) {
-    echo "新增成功!";
+    echo"<script>alert('新增成功！請登入會員！');</script>";
+    echo '<script>window.location.href="./index.php";</script>';
   } else {
     echo "fail " . $conn->error;
   }

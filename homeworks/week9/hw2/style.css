@@ -68,9 +68,6 @@ body {
 .login-btn {
   float: right;
 }
-.logout-form {
-  display: inline;
-}
 .form__btn {
   margin: 10px auto;
 }

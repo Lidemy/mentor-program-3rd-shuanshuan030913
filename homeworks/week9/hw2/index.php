@@ -26,9 +26,8 @@
         if(!isset($_COOKIE["member_id"])) {
           echo "<button class='btn login-btn' title='登入後即可新增留言'>會員登入</button>";
         } else {
-          echo "<form class='logout-form' action='./handle_logout.php' method='post'>";
-          echo   "<input type='submit' class='btn login-btn' name='logout' value='會員登出'>";
-          echo "</form>";
+          $link = 'window.location.href="./handle_logout.php"';
+          echo "<button type='submit' class='btn login-btn' onclick='$link'>會員登出</button>";
         }
       ?>
     </h1>
@@ -95,7 +94,7 @@
           }
         }
         echo "<form class='form' method='POST' action='./handle_add.php'>";
-        echo   "<textarea class='form__textarea' type='text' rows='3' name='context' placeholder='請輸入你的留言...'></textarea>";
+        echo   "<textarea class='form__textarea' type='text' rows='3' name='context' placeholder='請輸入你的留言...' required></textarea>";
         echo   "<button class='btn form__btn'>送出</button>";
         echo "</form>";
       }
@@ -110,7 +109,7 @@
             echo   "<div class='card__member-face'></div>";
             echo   "<div class='card__innner-text'>";
             echo     "<div class='card__info'>";
-            echo       "<span class='card__info-name'>" . $row['name'] . "</span>";
+            echo       "<span class='card__info-name'>" . $row['name'] . "<span class='card__info-time'> ‧ " . $row['created_at'] . "</span>";
             echo     "</div>";
             echo   "<p class='card__input-text'>" . $row['context'] . "</p>";
             echo   "</div>";
