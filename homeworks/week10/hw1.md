@@ -26,9 +26,9 @@
 
 ##### 後端的流程：
 
-request(test.php) => appache(server) => php => output => appache(server) => response
+request(test.php) => apache(server) => php => output => apache(server) => response
 
-appache的角色：把 request 拿進來，再把 output 丟出去
+apache 的角色：把 request 拿進來，再把 output 丟出去
 
 ##### 建立後端環境需要的東西：
 
