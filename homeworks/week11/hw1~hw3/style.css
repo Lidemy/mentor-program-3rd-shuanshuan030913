@@ -1,0 +1,234 @@
+body {
+  margin: 0;
+  background: #f7f7f7;
+}
+a {
+  text-decoration: inherit;
+}
+.warning {
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px 0;
+  background: #ffc4c6;
+  font-family: "Microsoft JhengHei", sans-serif;
+  color: #a20606;
+}
+.board {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #e8e8e8;
+  box-sizing: border-box;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+.title {
+  margin: 20px;
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 100;
+}
+.welcome {
+  margin: 0 0 0 10px;
+}
+.form {
+  display: flex;
+  padding: 0 10px;
+}
+.form__textarea {
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #c2dffb;
+  font-size: 16px;
+}
+.form__textarea.full {
+  width: 95%;
+}
+.form__textarea::placeholder {
+  color: #8cb2d6;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+.form__textarea:focus {
+  outline: inherit;
+}
+.btn {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Microsoft JhengHei", sans-serif;
+  color: #583c63;
+  height: 40px;
+  border: 1px solid #bddfff;
+  background: #fff;
+  border-radius:  5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 16%;
+}
+.btn:hover {
+  background: #bddfff;
+}
+.login-btn {
+  float: right;
+}
+.form__btn {
+  margin: 10px auto;
+}
+hr {
+  border: 0.5px solid #e8e8e8;
+  margin: 20px auto;
+  max-width: 95%;
+}
+
+.card {
+  margin: 10px 0;
+  min-height: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+.card__member-face{
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e4f0fb;
+}
+.card__innner-text {
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+}
+.edit__btn {
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  border: inherit;
+  background-color: #fff;
+  color: #5c9edc;
+  font-size: 20px;
+}
+.del__btn {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  border: inherit;
+  background-color: #fff;
+  color: #ff4770;
+  font-size: 20px;
+}
+.card__info {
+}
+.card__info-name {
+  font-weight: bold;
+  color: #5c9edc;
+}
+.card__info-time {
+  color: #a0a0a0;
+}
+.card__input-text{
+  margin-top: 8px;
+  max-width: 100%;
+}
+.board__footer {
+  text-align: center;
+  margin: 20px 0;
+}
+.board__footer small {
+  text-align: right;
+  display: block;
+  color: #909090;
+}
+.board__footer--link {
+  margin: 25px 0;
+}
+.board__footer--btn {
+  padding: 4px 10px;
+  margin: 0 20px;
+}
+.board__footer--btn + .board__footer--btn {
+  margin: 0 4px;
+}
+/* ------------ modal ----------- */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  animation-name: fadeIn;
+  animation-duration: 0.3s
+}
+.modal-title {
+  text-align: center;
+}
+.edit-title {
+    text-align: left;
+    max-width: 96%;
+    margin-left: auto;
+}
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 500px;
+}
+.modal-form {
+  padding: 0 10px;
+}
+.signup-form {
+  display: none;
+}
+.form-row {
+  margin: 10px 0;
+  text-align: center;
+}
+.form-row input{
+  box-sizing: border-box;
+  margin: 0 10px;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #c2dffb;
+  font-size: 16px;
+}
+.toggle-form {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.toggle-form:hover {
+  color: #2b6eb1;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
