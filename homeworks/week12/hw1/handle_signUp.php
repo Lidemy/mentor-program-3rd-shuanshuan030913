@@ -15,14 +15,11 @@
     die('所有選項接為必填！');
   }
 
-  $sql = "INSERT INTO shuanshuan030913_users(username, password, nickname) VALUES('$username', '$hash', '$nickname')";
+  $stmt = $conn->prepare("INSERT INTO shuanshuan030913_users(username, password, nickname) VALUES(?, ?, ?)");
+  $stmt->bind_param("sss", $username, $hash, $nickname);
+  $stmt->execute();
 
-  $result = $conn->query($sql);
+  echo"<script>alert('新增成功！請登入會員！');</script>";
+  echo '<script>window.location.href="./index.php";</script>';
 
-  if ($result) {
-    echo"<script>alert('新增成功！請登入會員！');</script>";
-    echo '<script>window.location.href="./index.php";</script>';
-  } else {
-    echo "fail " . $conn->error;
-  }
 ?>

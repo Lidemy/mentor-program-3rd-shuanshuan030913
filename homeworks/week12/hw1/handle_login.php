@@ -31,8 +31,10 @@
         $session_id = session_id();
         $session_username = $_SESSION['username'];
 
-        $session_sql = "INSERT INTO shuanshuan030913_users_certificate(session_id, username) VALUES('$session_id', '$session_username')";
-        $session_result = $conn->query($session_sql);
+        $session_stmt = $conn->prepare("INSERT INTO shuanshuan030913_users_certificate(session_id, username) VALUES(?, ?)");
+        $session_stmt->bind_param("ss", $session_id, $session_username);
+        $session_stmt->execute();
+        $session_result = $session_stmt->get_result();
 
       } else {
         echo "false";

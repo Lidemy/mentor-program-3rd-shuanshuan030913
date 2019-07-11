@@ -4,8 +4,11 @@
 
   // 留言資料
   $id = $_GET['id'];
-  $comm_sql = "SELECT * from shuanshuan030913_comments WHERE `id` = $id";
-  $comm_result = $conn->query($comm_sql);
+
+  $stmt = $conn->prepare("SELECT * from shuanshuan030913_comments WHERE `id`=?");
+  $stmt->bind_param("s", $id);
+  $stmt->execute();
+  $comm_result = $stmt->get_result();
 
 ?>
 
