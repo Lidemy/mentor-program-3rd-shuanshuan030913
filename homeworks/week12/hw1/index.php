@@ -12,12 +12,22 @@
   $member_id = '';
 
   if(isset($_COOKIE["PHPSESSID"]) && !empty($_COOKIE["PHPSESSID"])) {
-    $is_login = true;
+    // $is_login = true;
     $member_id = $_COOKIE["PHPSESSID"];
-    $member_sql = "SELECT * from shuanshuan030913_users LEFT JOIN shuanshuan030913_users_certificate ON shuanshuan030913_users.username = shuanshuan030913_users_certificate.username WHERE `session_id`='$member_id'";
-    $member_result = $conn->query($member_sql);
+
+    $member_stmt = $conn->prepare("SELECT * from shuanshuan030913_users LEFT JOIN shuanshuan030913_users_certificate ON shuanshuan030913_users.username = shuanshuan030913_users_certificate.username WHERE `session_id` = ? ");
+    $member_stmt->bind_param("s", $member_id);
+    $member_stmt->execute();
+    $member_result = $member_stmt->get_result();
+
     $member_row = $member_result->fetch_assoc();
-    $nickname = $member_row['nickname'];
+
+    if ($member_row) {
+      $is_login = true;
+    }
+
+    // var_dump($member_row);
+    $nickname = htmlspecialchars($member_row['nickname']);
   }
 
   // 3. 分頁用變數
@@ -125,7 +135,7 @@
 
             $parents_id = $comm_row['parents_id'];
             $id = $comm_row['id'];
-            $comm_name = $comm_row['name'];
+            $comm_name = htmlspecialchars($comm_row['name']);
 
             echo "<div class='card-group'>";
             echo   "<div class='card'>";
@@ -134,7 +144,7 @@
 
             // 會員可以編輯自己的留言
             if($is_login && $member_result->num_rows > 0) {
-              if ($comm_row['name'] === $nickname) {
+              if ($comm_name === $nickname) {
                 $comment_id = $comm_row['id'];
                 $confirm_msg = '"刪除此筆留言，下列回覆您的留言串將會全部刪除！確定刪除嗎？"';
                 echo  "<a href='./upt_msg.php?id=" . $comment_id . "' class='edit__btn' title='編輯'><span class='ri-pencil'></span></a>";
@@ -144,7 +154,7 @@
 
             // 留言內容顯示
             echo       "<div class='card__info'>";
-            echo         "<span class='card__info-name'>" . $comm_row['name'] . "<span class='card__info-time'> ‧ " . $comm_row['created_at'] . "</span>";
+            echo         "<span class='card__info-name'>" . $comm_name . "<span class='card__info-time'> ‧ " . $comm_row['created_at'] . "</span>";
             echo       "</div>";
             echo       "<p class='card__input-text'>" . htmlspecialchars($comm_row['context'], ENT_QUOTES, 'utf-8') . "</p>";
             echo     "</div>";

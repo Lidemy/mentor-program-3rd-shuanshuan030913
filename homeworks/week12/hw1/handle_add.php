@@ -5,8 +5,12 @@
 
   // 設定暱稱
   $member_id = $_COOKIE['PHPSESSID'];
-  $member_sql = "SELECT * from shuanshuan030913_users LEFT JOIN shuanshuan030913_users_certificate ON shuanshuan030913_users.username = shuanshuan030913_users_certificate.username WHERE `session_id`='$member_id'";
-  $member_result = $conn->query($member_sql);
+
+  $member_stmt = $conn->prepare("SELECT * from shuanshuan030913_users LEFT JOIN shuanshuan030913_users_certificate ON shuanshuan030913_users.username = shuanshuan030913_users_certificate.username WHERE `session_id`=?");
+  $member_stmt->bind_param("s", $member_id);
+  $member_stmt->execute();
+
+  $member_result = $member_stmt->get_result();
 
   if ($member_result->num_rows > 0) {
     while($row = $member_result->fetch_assoc()) {
@@ -23,13 +27,9 @@
     die('沒有輸入留言');
   }
 
-  $sql = "INSERT INTO shuanshuan030913_comments(name, context, parents_id) VALUES('$name', '$context', '$parents_id')";
+  $stmt = $conn->prepare("INSERT INTO shuanshuan030913_comments (name, context, parents_id) VALUES (?, ?, ?)");
+  $stmt->bind_param("sss", $name, $context, $parents_id);
+  $stmt->execute();
 
-  $result = $conn->query($sql);
-
-  if ($result) {
-    header('Location: ./index.php');
-  } else {
-    echo "fail " . $conn->error;
-  }
+  header('Location: ./index.php');
 ?>
