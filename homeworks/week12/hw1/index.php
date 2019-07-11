@@ -8,27 +8,7 @@
 
 
   // 2. 會員資料
-  $is_login = false;
-  $member_id = '';
-
-  if(isset($_COOKIE["PHPSESSID"]) && !empty($_COOKIE["PHPSESSID"])) {
-    // $is_login = true;
-    $member_id = $_COOKIE["PHPSESSID"];
-
-    $member_stmt = $conn->prepare("SELECT * from shuanshuan030913_users LEFT JOIN shuanshuan030913_users_certificate ON shuanshuan030913_users.username = shuanshuan030913_users_certificate.username WHERE `session_id` = ? ");
-    $member_stmt->bind_param("s", $member_id);
-    $member_stmt->execute();
-    $member_result = $member_stmt->get_result();
-
-    $member_row = $member_result->fetch_assoc();
-
-    if ($member_row) {
-      $is_login = true;
-    }
-
-    // var_dump($member_row);
-    $nickname = htmlspecialchars($member_row['nickname']);
-  }
+  require_once("./check_login.php");
 
   // 3. 分頁用變數
   $data_nums = $comm_result->num_rows;
