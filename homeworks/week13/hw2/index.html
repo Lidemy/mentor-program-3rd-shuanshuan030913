@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="./WebFont/style.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="list">
+    <header class="list__header">
+      <h1 class="list__title">Todo List</h1>
+      <div class="list__form">
+        <input class="list__input" type="text" placeholder="Add something to do here <(￣︶￣)>?">
+        <div class="input__underline"></div>
+      </div>
+    </header>
+    <ul class="list__container">
+
+      <li class="list__item">
+        <button class="btn list__checkbox tooltip handle__check" type="button">
+          <span class="tooltiptext">完成</span>
+        </button>
+        <p class="list__context">Hit the gym</p>
+        <button class="btn del__btn tooltip" type="button">
+          <span class='ri-cross'></span>
+          <span class="tooltiptext">刪除</span>
+        </button>
+      </li>
+
+      <li class="list__item">
+        <button class="btn list__checkbox tooltip handle__check" type="button">
+          <span class="tooltiptext">完成</span>
+        </button>
+        <p class="list__context">Pay bills</p>
+        <button class="btn del__btn tooltip" type="button">
+          <span class='ri-cross'></span>
+          <span class="tooltiptext">刪除</span>
+        </button>
+      </li>
+
+      <li class="list__item finished">
+        <button class="btn tooltip handle__check" type="button">
+          <span class="ri-check-square"></span>
+        </button>
+        <p class="list__context">Meet George</p>
+        <button class="btn del__btn tooltip" type="button">
+          <span class="ri-cross"></span>
+          <span class="tooltiptext">刪除</span>
+        </button>
+      </li>
+
+      <li class="list__item finished">
+        <button class="btn tooltip handle__check" type="button">
+          <span class="ri-check-square"></span>
+        </button>
+        <p class="list__context">Buy eggs</p>
+        <button class="btn del__btn tooltip" type="button">
+          <span class='ri-cross'></span>
+          <span class="tooltiptext">刪除</span>
+        </button>
+      </li>
+
+      <li class="list__item">
+        <button class="btn list__checkbox tooltip handle__check" type="button">
+          <span class="tooltiptext">完成</span>
+        </button>
+        <p class="list__context">Read a book</p>
+        <button class="btn del__btn tooltip" type="button">
+          <span class='ri-cross'></span>
+          <span class="tooltiptext">刪除</span>
+        </button>
+      </li>
+
+      <li class="list__item">
+        <button class="btn list__checkbox tooltip handle__check" type="button">
+          <span class="tooltiptext">完成</span>
+        </button>
+        <p class="list__context">Organize office</p>
+        <button class="btn del__btn tooltip" type="button">
+          <span class='ri-cross'></span>
+          <span class="tooltiptext">刪除</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
