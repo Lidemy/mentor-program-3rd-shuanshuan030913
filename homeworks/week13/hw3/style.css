@@ -1,0 +1,276 @@
+body {
+  margin: 0;
+  background: #f7f7f7;
+}
+a {
+  text-decoration: inherit;
+}
+.warning {
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px 0;
+  background: #ffc4c6;
+  font-family: "Microsoft JhengHei", sans-serif;
+  color: #a20606;
+}
+.board {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #e8e8e8;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+.title {
+  margin: 20px;
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 100;
+}
+.welcome {
+  margin: 0 0 0 10px;
+}
+.form {
+  display: flex;
+  padding: 0 20px 0 10px;
+  justify-content: space-between;
+}
+.form__textarea {
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 10px;
+  width: 75%;
+  border: 1px solid #c2dffb;
+  font-size: 16px;
+}
+.form__textarea.full {
+  width: 95%;
+}
+.form__textarea::placeholder {
+  color: #8cb2d6;
+  font-family: "Microsoft JhengHei", sans-serif;
+}
+.form__textarea:focus {
+  outline: inherit;
+}
+.btn {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Microsoft JhengHei", sans-serif;
+  color: #583c63;
+  height: 40px;
+  border: 1px solid #bddfff;
+  background: #fff;
+  border-radius:  5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 20%;
+}
+.btn-sm {
+  font-size: 14px;
+  height: 32px;
+  width: 12%;
+}
+.btn:hover {
+  background: #bddfff;
+}
+.login-btn {
+  float: right;
+  min-width: 100px;
+}
+.form__btn {
+  margin: 10px 0;
+  min-width: 65px;
+}
+hr {
+  border: 0.5px solid #e8e8e8;
+  margin: 20px auto;
+  max-width: 95%;
+}
+.list-group {
+  margin: 10px 0;
+}
+.list {
+  min-height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+.list__member-face{
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #d8e1e8;
+}
+.list__innner-text {
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+}
+.edit__btn, .del__btn, .redo__btn {
+  position: absolute;
+  background-color: transparent;
+  cursor: pointer;
+  border: inherit;
+  font-size: 20px;
+}
+.edit__btn{
+  right: 30px;
+  color: #5c9edc;
+}
+.del__btn{
+  right: 0;
+  color: #ff4770;
+}
+.redo__btn {
+  top: 0;
+  right: 0;
+  color: #5c9edc;
+}
+.edit__btn:hover, .del__btn:hover, .redo__btn {
+  text-decoration: unset;
+}
+.edit__btn:hover {
+  color: #5c9edc;
+}
+.del__btn:hover {
+  color: #ff4770;
+}
+.edit__btn:focus, .del__btn:focus, .redo__btn:focus {
+  outline: inherit;
+}
+.list__info {
+  padding-right: 60px;
+}
+.list__info-name {
+  font-weight: bold;
+  color: #5c9edc;
+}
+.list__info-time {
+  color: #a0a0a0;
+  font-size: 14px;
+}
+.list__input-text{
+  margin-top: 8px;
+  max-width: 100%;
+}
+
+.sub-list {
+  margin: 0 0 8px 60px;
+  padding: 8px 10px 0;
+}
+.list__review-form {
+  display: none;
+}
+.list__review-form .form {
+  padding: 0;
+}
+.review-btn {
+  min-width: 50px;
+}
+.owner_bg {
+  background-color: #fafbff;
+}
+
+/* -------- footer -------*/
+
+.board__footer {
+  text-align: center;
+  margin: 20px 0;
+}
+.board__footer small {
+  text-align: right;
+  display: block;
+  color: #909090;
+}
+.board__footer--link {
+  margin: 25px 0;
+}
+.board__footer--btn {
+  padding: 4px 10px;
+  margin: 0 20px;
+  width: inherit;
+}
+.board__footer--btn + .board__footer--btn {
+  margin: 0 4px;
+}
+
+/* ------------ modal ----------- */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 100px 10px 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  animation-name: fadeIn;
+  animation-duration: 0.3s
+}
+.modal-title {
+  text-align: center;
+}
+.edit-title {
+    text-align: left;
+    max-width: 96%;
+    margin-left: auto;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: inherit;
+  max-width: 500px;
+}
+.modal-form {
+  padding: 0 10px;
+}
+.signup-form {
+  display: none;
+}
+.form-group input {
+  border: 1px solid #c2dffb;
+  padding: 10px;
+}
+.toggle-form {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.toggle-form:hover {
+  color: #2b6eb1;
+}
+
+.close {
+  color: #aaaaaa;
+  transition: all 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+/* ------------ rwd ----------- */
+
+@media only screen and (max-width: 576px) {
+  .sub-list {
+    margin: 0 0 8px 40px;
+  }
+  .board__footer--btn {
+    margin: 0 5px;
+  }
+}
