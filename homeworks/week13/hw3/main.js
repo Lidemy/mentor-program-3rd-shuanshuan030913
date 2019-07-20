@@ -74,13 +74,12 @@ $(document).ready(() => {
     let ctrlBtn = '';
     let ownerColor = '';
 
-    if (isLogin) {
-      if (loginNickname === subName) {
-        ctrlBtn = getCtrlBtn();
-      }
-      if (subName === mainName) {
-        ownerColor = 'owner_bg';
-      }
+    if (isLogin && loginNickname === subName) {
+      ctrlBtn = getCtrlBtn();
+    }
+
+    if (subName === mainName) {
+      ownerColor = 'owner_bg';
     }
 
     const subData = `<div class='list sub-list ${ownerColor}'>
