@@ -9,39 +9,38 @@
   $password = $_POST["password"];
 
   if (empty($username) || empty($password)) {
-    die("所有選項接為必填！");
-  }
+    echo "<script>alert('所有選項接為必填！');</script>";
+    echo "<script>window.location.href='./index.php';</script>";
+  } else {
 
-  $stmt = $conn->prepare("SELECT * from shuanshuan030913_users WHERE username=?");
-  $stmt->bind_param("s", $username);
-  $stmt->execute();
+    $stmt = $conn->prepare("SELECT * from shuanshuan030913_users WHERE username=?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
 
-  $result = $stmt->get_result();
+    $result = $stmt->get_result();
 
-  if ($result->num_rows > 0) {
+    if ($result->num_rows > 0) {
 
-    while($row = $result->fetch_assoc()) {
+      while($row = $result->fetch_assoc()) {
 
-      if (password_verify($password, $row["password"])) {
+        if (password_verify($password, $row["password"])) {
 
-        session_start();
+          session_start();
+          $_SESSION['nickname'] = $row["nickname"];
 
-        $_SESSION['username'] = $row["username"];
+          echo "<script>alert('成功登入！歡迎回來！');</script>";
+          echo "<script>window.location.href='./index.php';</script>";
 
-        $session_id = session_id();
-        $session_username = $_SESSION['username'];
-
-        $session_stmt = $conn->prepare("INSERT INTO shuanshuan030913_users_certificate(session_id, username) VALUES(?, ?)");
-        $session_stmt->bind_param("ss", $session_id, $session_username);
-        $session_stmt->execute();
-        $session_result = $session_stmt->get_result();
-
-      } else {
-        echo "false";
+        } else {
+          echo "<script>alert('密碼錯誤！');</script>";
+          echo "<script>window.location.href='./index.php';</script>";
+        }
       }
+    } else {
+      echo "<script>alert('無此帳號！');</script>";
+      echo "<script>window.location.href='./index.php';</script>";
     }
     $conn->close();
   }
 
-  header("Location: ./index.php");
 ?>
