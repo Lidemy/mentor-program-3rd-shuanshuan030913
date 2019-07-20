@@ -210,6 +210,7 @@ $(document).ready(() => {
       },
       error: (result) => {
         console.log('result', result);
+        $('body').html(result.responseText);
       },
     });
   }
@@ -217,7 +218,7 @@ $(document).ready(() => {
   function handleDelete(id, curPage) {
     $.ajax({
       url: './handle_delete.php',
-      type: 'GET',
+      type: 'POST',
       data: { 'id': id },
       dataType: 'json',
       success: (result) => {
@@ -235,7 +236,7 @@ $(document).ready(() => {
   function handleUpt(id, context, curPage) {
     $.ajax({
       url: './handle_update.php',
-      type: 'GET',
+      type: 'POST',
       data: { 'id': id, 'context': context },
       dataType: 'json',
       success: (result) => {
@@ -253,7 +254,7 @@ $(document).ready(() => {
   function handleAdd(parentsId, context, curPage) {
     $.ajax({
       url: './handle_add.php',
-      type: 'GET',
+      type: 'POST',
       data: { 'context': context, 'parents_id': parentsId },
       dataType: 'json',
       success: (result) => {
@@ -285,7 +286,7 @@ $(document).ready(() => {
 
     if (result) {
       handleDelete($(e.currentTarget).parent().attr('data-id'), curPage);
-      alert('刪除的留言就像潑出去的水，撈不回來了！');
+      alert('刪除的留言就像花出去的錢，哭都回不來，自己剁手吧！');
     }
 
   });
