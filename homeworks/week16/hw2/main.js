@@ -4,7 +4,7 @@ function Stack() {
     push: (e) => {
       arrS.splice(arrS.length, 0, e);
     },
-    pop: () => arrS.splice((arrS.length - 1), 1).toString(),
+    pop: () => arrS.splice((arrS.length - 1), 1)[0],
   };
 }
 
@@ -14,7 +14,7 @@ function Queue() {
     push: (e) => {
       arrQ.splice(arrQ.length, 0, e);
     },
-    pop: () => arrQ.splice(0, 1).toString(),
+    pop: () => arrQ.splice(0, 1)[0],
   };
 }
 
