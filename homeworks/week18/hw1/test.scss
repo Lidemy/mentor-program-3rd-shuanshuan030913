@@ -1,0 +1,11 @@
+$color: red;
+
+.btn {
+  color: $color;
+  &:hover {
+    color: lighten($color, 20%);
+  }
+  &:active {
+    color: darken($color, 5%);
+  }
+}
