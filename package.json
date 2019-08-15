@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint ./homeworks/**/*.js",
     "test": "jest",
-    "build": "webpack"
+    "watch": "webpack --config ./homeworks/week18/hw2/webpack.config.js --watch --mode development",
+    "build": "webpack --config ./homeworks/week18/hw2/webpack.config.js --mode production"
   },
   "husky": {
     "hooks": {
