@@ -26,7 +26,7 @@ $(document).ready(() => {
     $('.list__container').append(list.map((item) => {
 
       // 未完成
-      if (item.status === 0) {
+      if (!item.status) {
         return `<li class="list__item">
         <button class="btn tooltip handle__check list__checkbox" type="button">
           <span class="tooltiptext">完成</span>
@@ -76,8 +76,7 @@ $(document).ready(() => {
     const $this = $(e.currentTarget);
 
     if (e.which === 13) {
-      const context = $this.val();
-      addTodo(context);
+      addTodo($this.val());
       $this.val('');
     }
   });
