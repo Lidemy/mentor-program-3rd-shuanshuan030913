@@ -1,6 +1,7 @@
 <?php
 
   require_once("./conn.php");
+  header('Content-type: text/javascript');
 
   $comm_sql = "SELECT * from list_content ORDER BY created_at ASC";
   $comm_result = $conn->query($comm_sql);
@@ -11,5 +12,5 @@
     }
   }
 
-  echo json_encode($result, JSON_UNESCAPED_UNICODE);
+  echo json_encode($result, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_UNICODE);
 ?>
