@@ -136,6 +136,7 @@ body {
   border: inherit;
   border-bottom: 1px solid #189BA3;
   padding: 5px;
+  width: 110%;
   color: #189BA3;
   font-size: 20px;
   font-family: "Quicksand", "Microsoft JhengHei", sans-serif;
