@@ -101,8 +101,8 @@ class TodoList extends Component {
           </div>
         </header>
         <div style={{ padding: '0 24px' }}>
-          <button className="btn filter active" type="button" onClick={this.filterAll}>All</button>
-          <button className="btn filter" type="button" onClick={this.filterFinished}>Finished</button>
+          <button className={`btn filter ${filter === 'all' ? 'active' : ''}`} type="button" onClick={this.filterAll}>All</button>
+          <button className={`btn filter ${filter === 'finished' ? 'active' : ''}`} type="button" onClick={this.filterFinished}>Finished</button>
         </div>
         <ul className="list__container">
           {todos

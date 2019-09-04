@@ -4,6 +4,7 @@
 $colors: (
   primary:    #189BA3,
   secondary:  #6fc6cc,
+  warning:    #f99126,
   gray:       #ccc
 );
 $font-family-normal: 'Quicksand', "Microsoft JhengHei", sans-serif;
@@ -59,7 +60,7 @@ body {
 
 .filter {
   display: inline-block;
-  background-color: #189BA3;
+  background-color: color(primary);
   color: #fff;
   font-family:'Quicksand', "Microsoft JhengHei", sans-serif;
   text-align: center;
@@ -70,6 +71,7 @@ body {
   @extend %transition;
   &:hover, &.active {
     opacity: 1;
+    background-color: color(warning);
   }
   & + & {
     margin-left: 5px;

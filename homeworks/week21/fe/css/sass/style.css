@@ -52,7 +52,7 @@ body {
 }
 .filter:hover, .filter.active {
   opacity: 1;
-  background-color: #f99126;
+  background-color: #ff862f;
 }
 .filter + .filter {
   margin-left: 5px;
