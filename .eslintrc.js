@@ -1,4 +1,6 @@
 module.exports = {
+
+  parser: "babel-eslint",
   env: {
     browser: true,
     es6: true,
@@ -23,10 +25,16 @@ module.exports = {
   rules: {
     "no-console": "off",
     "no-tabs":"off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-plusplus": "off",
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "padded-blocks": "off",
     "linebreak-style": "off",
     "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/destructuring-assignment": "off",
+    "react/prop-types": 0,
+    "no-useless-constructor": "off",
+    "react/no-access-state-in-setstate": "off",
   },
 };
