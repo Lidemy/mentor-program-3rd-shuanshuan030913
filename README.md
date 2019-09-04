@@ -728,9 +728,11 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 
 至此，這個課程的基礎跟中階都學完了，從下週開始就要進入到前後端框架的領域。
 
-為了怕大家複習週太無聊，這次也準備了一個有趣的小測驗，這邊是一個速度很慢的網站，原因有很多種，原始碼在這裡：（待補）。
+為了怕大家複習週太無聊，這次也準備了一個有趣的小測驗，[Lazy Hackathon](https://lidemy.github.io/lazy-hackathon/) 是一個速度很慢的網站，原因有很多，原始碼在這裡：https://github.com/Lidemy/lazy-hackathon （特別感謝 [@yakim-shu](https://github.com/yakim-shu) 同學製作這個小測驗）
 
-現在呢，你要來負責優化這個網站，在不動內容的情形下來調整，使網站的載入速度變快。這只是一個靜態網站而已，你可以 fork 到自己的 GitHub 去然後用 GitHub Page 來部署，並且使用 [WebPageTest](https://www.webpagetest.org/) 這個網站來測試你的網站速度為何。（測試地點請統一選擇 Singapore - EC2），Browser 為 Chrome。
+現在呢，你要來負責優化這個網站，在「不動內容」的情形下來調整，意思就是說網頁看起來要「長得一模一樣」，把圖片變黑白、刪減文字或是更動排版都是不允許的，但刪減多餘的 HTML、CSS 和 JS 是 ok 的，只要保證網頁看起來一樣就行了，原始碼怎麼動隨便你，總之目標是使網站的載入速度變快。
+
+詳細說明請參考上面的原始碼連結。
 
 若是你沒有任何靈感，可參考 [web.dev](https://web.dev/) 或是 [Website Performance Optimization](https://www.udacity.com/course/website-performance-optimization--ud884)
 
@@ -749,6 +751,11 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 再者，用框架來改寫的好處就是你可以迅速跟之前的專案做比對，一定會有許多心得！所以這週在教完之後，會讓大家把之前的留言板從純 PHP 用 CodeIgniter 這套框架改寫，就可以比較一下兩者之間有哪裡不一樣。
 
 （這一週預期會卡的很嚴重，如果你卡超過兩週，請果斷先放棄這週並且往下一週前進，其實這週跟之後三週比較沒有順序關係，要先跳到下一週也是可以的）
+
+指定教材：
+
+1. 程式導師實驗計畫：Lesson 14-1 之 CodeIgniter 上
+2. [CodeIgniter 使用手冊](https://codeigniter.org.tw/userguide3/)
 
 [HW21 作業連結](/homeworks/week21/be)
 
@@ -800,6 +807,10 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 
 有了之前 PHP 以及 CodeIgniter 的基礎，我相信學習 Express 會快速許多，因此在這一週裡面可以試試看能不能快速上手 Express 並完成作業。
 
+指定教材：
+
+1. [BE201] Express 與 Sequelize：「ORM 與 Sequelize」單元前所有內容
+
 [HW22 作業連結](/homeworks/week22/be)
 
 #### 自我檢測
@@ -842,6 +853,10 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 
 而且你幾乎不需要寫任何 SQL Query，因為 ORM 都會幫你處理的好好的，你只要學習怎麼用就可以了。這一週會使用 Sequelize 這個套件來做 ORM 以及串接資料庫，讓你體驗看看不用寫 SQL Query 的爽快感。
 
+指定教材：
+
+1. [BE201] Express 與 Sequelize：「部署：Nginx + PM2」前所有單元
+
 [HW23 作業連結](/homeworks/week23/be)
 
 #### 自我檢測
@@ -872,9 +887,14 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 
 ### 後端框架（四）
 
-這週會使用 Nginx + PM2 來部署我們之前寫好的 web application。
+這週會使用 Nginx + PM2 來部署我們之前寫好的 Web Application。
 
 除此之外也會簡單介紹 CI/CD。
+
+指定教材：
+
+1. [BE201] Express 與 Sequelize：「部署：Nginx + PM2」前所有單元
+2. 程式導師實驗計畫：Lesson 14-2 之 CI/CD
 
 [HW24 作業連結](/homeworks/week24/be)
 
@@ -890,11 +910,10 @@ HTML 的部分就簡單帶過幾個常見的 tag，帶到 head 的一些屬性�
 
 指定教材：
 
-1. 第二期 Redux part 1
-2. 第二期 Redux part 2
-3. 第二期 React + Redux 補充：super
-4. 第二期 React + Redux 補充：this
-5. 程式導師實驗計畫：Lesson 13-2 之 React + Redux 下
+1. 第二期 Redux 補充講解：redux-thunk 與 redux-promise
+2. 程式導師實驗計畫：Lesson 13-2 之 React + Redux 下
+3. 第二期 React 補充：什麼是 super 以及生命週期的運用
+4. 第二期 React 補充：再來談談什麼是 this
 
 [HW24 作業連結](/homeworks/week24/fe)
 
