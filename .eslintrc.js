@@ -36,5 +36,8 @@ module.exports = {
     "react/prop-types": 0,
     "no-useless-constructor": "off",
     "react/no-access-state-in-setstate": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/interactive-supports-focus": "off",
+    "react/no-array-index-key": "off",
   },
 };
