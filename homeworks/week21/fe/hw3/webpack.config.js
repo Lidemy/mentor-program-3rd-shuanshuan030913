@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'boundle.[hash].js',
-    publicPath: '/',
+    publicPath: './',
   },
   module: {
     rules: [
@@ -26,6 +26,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin(

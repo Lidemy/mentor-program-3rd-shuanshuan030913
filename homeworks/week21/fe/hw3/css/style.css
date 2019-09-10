@@ -108,6 +108,7 @@ a {
 .list.link {
   border-left: 0 solid #ffe5d2;
   cursor: pointer;
+  display: block;
 }
 .list.link:hover {
   left: -10px;

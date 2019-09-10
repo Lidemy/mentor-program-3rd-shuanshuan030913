@@ -137,6 +137,7 @@ a {
   &.link {
     border-left: 0 solid lighten(color(primary), 10%);
     cursor: pointer;
+    display: block;
     &:hover {
       left: -10px;
       border-left: 5px solid lighten(color(primary), 10%);

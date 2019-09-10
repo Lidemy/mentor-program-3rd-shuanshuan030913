@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => (
@@ -24,34 +24,37 @@ const Navbar = () => (
   </nav>
 );
 
-class Item extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  onClick = () => {
-    const { dataItem, onClick } = this.props;
-    onClick(dataItem.id);
-  }
-
-  render() {
-    const { dataItem } = this.props;
-    return (
-      <div
-        role="button"
-        key={dataItem.id}
-        className="list link"
-        onClick={this.onClick}
-      >
-        <h2 className="list__title">
-          {dataItem.title}
-        </h2>
-      </div>
-    );
-  }
+function First(props) {
+  const { data } = props;
+  return (
+    <section>
+      {data.map(e => (
+        <Link key={e.id} className="list link" to={`/blog/${e.id}`}>
+          <div className="list__title">
+            {e.title}
+          </div>
+        </Link>
+      ))}
+    </section>
+  );
 }
 
-export {
-  Navbar,
-  Item,
-};
+function Page(props) {
+  const { dataItem } = props;
+
+  return (
+    <section className="page">
+      <article className="list">
+        <h2 className="">
+          {dataItem.title}
+        </h2>
+        <p>
+          {dataItem.body}
+        </p>
+      </article>
+    </section>
+  );
+}
+
+export { Navbar, First, Page };
