@@ -1,0 +1,157 @@
+/* ----- variables ------*/
+
+$colors: (
+  primary : #ffc79f,
+  secondary: #de9119,
+  danger  : #fd5f50,
+  gray    : #ccc
+);
+$font-family-normal: "Microsoft JhengHei", sans-serif;
+
+/* ----- function ------*/
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/* ----- extends ------*/
+%transition {
+  transition: all .3s;
+}
+%center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ----- pseudo ----- */
+@mixin pseudo($display: block, $content: '') {
+    content: $content;
+    display: $display;
+}
+
+/* ----- layout ------*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-normal;
+  font-size: 20px;
+  background-color: #fff;
+}
+main {
+  position: relative;
+  width: 100%;
+}
+section {
+  width: 80%;
+  @extend %center;
+}
+
+/* ----- common ------*/
+
+li {
+  display: inline-block;
+}
+
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  @extend %transition;
+
+  &:focus {
+    outline: inherit;
+  }
+  &:hover {
+    color: color(secondary);
+  }
+}
+h1, h2 {
+  margin: 0;
+}
+a {
+  color: #000;
+  text-decoration: inherit;
+}
+
+/* ----- main ------*/
+
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  box-shadow: 1px 1px 5px lighten(color(gray), 5%);
+  z-index: 1;
+
+  .logo {
+    cursor: pointer;
+  }
+
+  &__group {
+    margin: 0;
+    display: flex;
+  }
+
+  &__li {
+    position: relative;
+    top: 0;
+    cursor: pointer;
+
+    &:hover {
+      top: -3px;
+    }
+
+    & + & {
+      margin-left: 20px;
+    }
+  }
+  &__link {
+    @extend %transition;
+    &:hover {
+      color: color(secondary);
+    }
+  }
+}
+.main__title {
+  text-align: center;
+  font-size: 48px;
+  padding: 50px 0;
+  color: darken(color(primary), 15%);
+  background-color: lighten(color(primary), 15%);
+}
+.list {
+  position: relative;
+  left: 0;
+  margin-top: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+  border-bottom: 1px solid lighten(color(gray), 10%);
+  @extend %transition;
+
+  &.link {
+    border-left: 0 solid lighten(color(primary), 10%);
+    cursor: pointer;
+    display: block;
+    &:hover {
+      left: -10px;
+      border-left: 5px solid lighten(color(primary), 10%);
+
+      & > .list__title {
+        color: color(danger);
+      }
+    }
+  }
+
+
+  &__title {
+    font-size: 22px;
+    margin: 10px 5px;
+    @extend %transition;
+  }
+}

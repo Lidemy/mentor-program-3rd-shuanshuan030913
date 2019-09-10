@@ -1,0 +1,258 @@
+
+/* ----- variables ------*/
+
+$colors: (
+  primary:    #189BA3,
+  secondary:  #6fc6cc,
+  warning:    #f99126,
+  gray:       #ccc
+);
+$font-family-normal: 'Quicksand', "Microsoft JhengHei", sans-serif;
+
+/* ----- function ------*/
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/* ----- extends ------*/
+%transition {
+    transition: all .2s;
+}
+
+/* ----- all ------*/
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: $font-family-normal;
+  background-color: #fff;
+}
+.btn {
+  background-color: transparent;
+  border: inherit;
+  padding: 0;
+  @extend %transition;
+  &:focus {
+    outline: inherit;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  span {
+    color: color(primary);
+  }
+
+}
+
+.del__btn {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  font-size: 16px;
+
+  span {
+    font-weight: bold;
+  }
+}
+
+/* ----- main ------*/
+
+.filter {
+  display: inline-block;
+  background-color: color(primary);
+  color: #fff;
+  font-family:'Quicksand', "Microsoft JhengHei", sans-serif;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 5px 20px;
+  opacity: 0.6;
+  @extend %transition;
+  &:hover, &.active {
+    opacity: 1;
+    background-color: color(warning);
+  }
+  & + & {
+    margin-left: 5px;
+  }
+}
+
+.list {
+  position: relative;
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 760px;
+  background-color: #FFFDE7;
+  margin-top: 100px;
+  padding: 15px 20px;
+  color: color(primary);
+  font-weight: bold;
+  box-shadow: 2px 2px 6px color(gray);
+
+  &:before, &:after {
+    content: '';
+    position:  absolute;
+    top: 30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: color(secondary);
+    box-shadow: 3px 3px 4px color(gray);
+  }
+
+  &:before {
+    left: 30px;
+  }
+
+  &:after {
+    right: 30px;
+  }
+
+  &__header {
+    padding: 0 24px;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: 64px;
+    margin: 20px 0 15px;
+    text-align: center;
+
+    @media only screen and (max-width: 480px) {
+      font-size: 40px;
+    }
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  .input__underline {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: color(primary);
+    @extend %transition;
+  }
+
+  &__input {
+    width: 100%;
+    background-color: #FFFDE7;
+    border: inherit;
+    padding: 10px;
+    color: color(primary);
+    font-family: $font-family-normal;
+    font-size: 20px;
+
+    &:focus {
+      outline: inherit;
+      font-size: 20px;
+
+      & + .input__underline {
+        left: 0;
+        width: 100%;
+      }
+
+    }
+    &::placeholder {
+      color: color(secondary);
+    }
+  }
+
+  &__container {
+    list-style-type: none;
+    padding: 0;
+  }
+  &__item {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 20px;
+    @extend %transition;
+    &:hover {
+      background-color: rgba( 255, 255, 255, 0.9);
+    }
+    & + & {
+      margin-top: 10px;
+    }
+  }
+
+  &__context {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+  }
+}
+
+/* ----- checkbox ------*/
+
+.list__checkbox {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 2px solid color(primary);
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.ri-check-square {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.finished {
+  opacity: 0.4;
+  .list__context:after {
+    content: '';
+    position: relative;
+    top: -12px;
+    left: -5%;
+    display: block;
+    width: 110%;
+    border-bottom: 1px solid color(primary);
+  }
+}
+.list__item.finished:hover {
+  background-color:inherit;
+}
+
+/* ----- tooltips ------*/
+.tooltip {
+
+  .tooltiptext {
+    width: 60px;
+    background-color: color(primary);
+    color: #fff;
+    font-family: $font-family-normal;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -50px;
+    left: 50%;
+    margin-left: -30px;
+    opacity: 0;
+    @extend %transition;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: color(primary) transparent transparent transparent;
+    }
+  }
+
+  &:hover .tooltiptext {
+    opacity: 0.8;
+  }
+}

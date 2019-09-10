@@ -1,0 +1,123 @@
+/* ----- variables ------*/
+/* ----- function ------*/
+/* ----- extends ------*/
+.list__title, .list, .nav__link, .btn {
+  transition: all 0.3s;
+}
+
+section {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ----- pseudo ----- */
+/* ----- layout ------*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft JhengHei", sans-serif;
+  font-size: 20px;
+  background-color: #fff;
+}
+
+main {
+  position: relative;
+  width: 100%;
+}
+
+section {
+  width: 80%;
+}
+
+/* ----- common ------*/
+li {
+  display: inline-block;
+}
+
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.btn:focus {
+  outline: inherit;
+}
+.btn:hover {
+  color: #de9119;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: inherit;
+}
+
+/* ----- main ------*/
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  box-shadow: 1px 1px 5px #d9d9d9;
+  z-index: 1;
+}
+.nav .logo {
+  cursor: pointer;
+}
+.nav__group {
+  margin: 0;
+  display: flex;
+}
+.nav__li {
+  position: relative;
+  top: 0;
+  cursor: pointer;
+}
+.nav__li:hover {
+  top: -3px;
+}
+.nav__li + .nav__li {
+  margin-left: 20px;
+}
+.nav__link:hover {
+  color: #de9119;
+}
+
+.main__title {
+  text-align: center;
+  font-size: 48px;
+  padding: 50px 0;
+  color: #ff9a53;
+  background-color: #fff4ec;
+}
+
+.list {
+  position: relative;
+  left: 0;
+  margin-top: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.list.link {
+  border-left: 0 solid #ffe5d2;
+  cursor: pointer;
+  display: block;
+}
+.list.link:hover {
+  left: -10px;
+  border-left: 5px solid #ffe5d2;
+}
+.list.link:hover > .list__title {
+  color: #fd5f50;
+}
+.list__title {
+  font-size: 22px;
+  margin: 10px 5px;
+}
