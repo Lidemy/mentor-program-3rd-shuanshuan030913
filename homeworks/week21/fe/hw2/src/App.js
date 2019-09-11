@@ -26,111 +26,32 @@ function calculateWinner(squares, x, y) {
   }
   const boardP = board[y][x];
 
-  // horizonal
-  function CheckR() {
-    let pieceR = 0;
-    for (n = 1; n < 5; n++) {
-      if (x + n < line && board[y][x + n] === boardP) {
-        pieceR++;
-      } else {
-        return pieceR;
-      }
-    }
-    return pieceR;
-  }
+  function CheckTotal(currentX, currentY, directionX, directionY) {
+    let nextX = currentX;
+    let nextY = currentY;
+    let total = 0;
+    do {
+      nextX += directionX;
+      nextY += directionY;
 
-  function CheckL() {
-    let pieceL = 0;
-    for (n = 1; n < 5; n++) {
-      if (x - n >= 0 && board[y][x - n] === boardP) {
-        pieceL++;
+      if (
+        nextX >= 0 && nextX < line
+        && nextY >= 0 && nextY < line
+        && board[nextY][nextX] === boardP
+      ) {
+        total++;
       } else {
-        return pieceL;
+        break;
       }
-    }
-    return pieceL;
-  }
-
-  // vertical
-  function CheckT() {
-    let pieceT = 0;
-    for (n = 1; n < 5; n++) {
-      if (y - n >= 0 && board[y - n][x] === boardP) {
-        pieceT++;
-      } else {
-        return pieceT;
-      }
-    }
-    return pieceT;
-  }
-
-  function CheckB() {
-    let pieceB = 0;
-    for (n = 1; n < 5; n++) {
-      if (y + n < line && board[y + n][x] === boardP) {
-        pieceB++;
-      } else {
-        return pieceB;
-      }
-    }
-    return pieceB;
-  }
-
-  // slash
-  function CheckST() {
-    let pieceST = 0;
-    for (n = 1; n < 5; n++) {
-      if (x + n < line && y - n >= 0 && board[y - n][x + n] === boardP) {
-        pieceST++;
-      } else {
-        return pieceST;
-      }
-    }
-    return pieceST;
-  }
-
-  function CheckSB() {
-    let pieceSB = 0;
-    for (n = 1; n < 5; n++) {
-      if (x - n >= 0 && y + n < line && board[y + n][x - n] === boardP) {
-        pieceSB++;
-      } else {
-        return pieceSB;
-      }
-    }
-    return pieceSB;
-  }
-
-  // Backslash
-  function CheckBST() {
-    let pieceBST = 0;
-    for (n = 1; n < 5; n++) {
-      if (x - n >= 0 && y - n >= 0 && board[y - n][x - n] === boardP) {
-        pieceBST++;
-      } else {
-        return pieceBST;
-      }
-    }
-    return pieceBST;
-  }
-
-  function CheckBSB() {
-    let pieceBSB = 0;
-    for (n = 1; n < 5; n++) {
-      if (x + n < line && y + n < line && board[y + n][x + n] === boardP) {
-        pieceBSB++;
-      } else {
-        return pieceBSB;
-      }
-    }
-    return pieceBSB;
+    } while (total);
+    return total;
   }
 
   if (
-    (CheckR() + CheckL()) >= 4
-    || (CheckT() + CheckB()) >= 4
-    || (CheckST() + CheckSB()) >= 4
-    || (CheckBST() + CheckBSB()) >= 4
+    CheckTotal(x, y, 1, 0) + CheckTotal(x, y, -1, 0) >= 4
+    || CheckTotal(x, y, 0, 1) + CheckTotal(x, y, 0, -1) >= 4
+    || CheckTotal(x, y, 1, 1) + CheckTotal(x, y, -1, -1) >= 4
+    || CheckTotal(x, y, 1, -1) + CheckTotal(x, y, -1, 1) >= 4
   ) {
     return boardP;
   }

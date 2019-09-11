@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
+import '../css/style.css';
 
 class TodoList extends Component {
   constructor(props) {
@@ -15,11 +16,11 @@ class TodoList extends Component {
   componentDidMount() {
     const todoData = window.localStorage.getItem('todoapp');
     if (todoData) {
-      const CurrentTodos = JSON.parse(todoData);
+      const currentTodos = JSON.parse(todoData);
       this.setState({
-        todos: CurrentTodos,
+        todos: currentTodos,
       });
-      this.id = CurrentTodos[CurrentTodos.length - 1].id + 1;
+      this.id = currentTodos[currentTodos.length - 1].id + 1;
     }
   }
 
