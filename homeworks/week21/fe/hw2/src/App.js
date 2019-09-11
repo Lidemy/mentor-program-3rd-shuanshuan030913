@@ -26,7 +26,7 @@ function calculateWinner(squares, x, y) {
   }
   const boardP = board[y][x];
 
-  function CheckTotal(currentX, currentY, directionX, directionY) {
+  function checkTotal(currentX, currentY, directionX, directionY) {
     let nextX = currentX;
     let nextY = currentY;
     let total = 0;
@@ -48,10 +48,10 @@ function calculateWinner(squares, x, y) {
   }
 
   if (
-    CheckTotal(x, y, 1, 0) + CheckTotal(x, y, -1, 0) >= 4
-    || CheckTotal(x, y, 0, 1) + CheckTotal(x, y, 0, -1) >= 4
-    || CheckTotal(x, y, 1, 1) + CheckTotal(x, y, -1, -1) >= 4
-    || CheckTotal(x, y, 1, -1) + CheckTotal(x, y, -1, 1) >= 4
+    checkTotal(x, y, 1, 0) + checkTotal(x, y, -1, 0) >= 4
+    || checkTotal(x, y, 0, 1) + checkTotal(x, y, 0, -1) >= 4
+    || checkTotal(x, y, 1, 1) + checkTotal(x, y, -1, -1) >= 4
+    || checkTotal(x, y, 1, -1) + checkTotal(x, y, -1, 1) >= 4
   ) {
     return boardP;
   }
