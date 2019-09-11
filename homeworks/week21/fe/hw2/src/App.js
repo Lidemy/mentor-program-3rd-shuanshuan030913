@@ -34,7 +34,11 @@ function calculateWinner(squares, x, y) {
       nextX += directionX;
       nextY += directionY;
 
-      if (board[nextY][nextX] === boardP) {
+      if (
+        nextX >= 0 && nextX < line
+        && nextY >= 0 && nextY < line
+        && board[nextY][nextX] === boardP
+      ) {
         total++;
       } else {
         break;
