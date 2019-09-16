@@ -39,5 +39,11 @@ module.exports = {
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/interactive-supports-focus": "off",
     "react/no-array-index-key": "off",
+    "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/anchor-is-valid":"off",
+    "react/no-children-prop": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-boolean-value": "off",
   },
 };

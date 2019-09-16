@@ -1,0 +1,262 @@
+/* ----- variables ------*/
+
+$colors: (
+  primary : #9f9b0a,
+  secondary: #d8d8d8,
+  danger  : #d22222,
+);
+$font-family-normal: 'Cormorant', 'Microsoft JhengHei', sans-serif;
+
+$layout-max-width: 1200px;
+$footer-hight: 25px;
+
+/* ----- function ------*/
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/* ----- extends ------*/
+%transition {
+  transition: all .3s;
+}
+%center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ----- pseudo ----- */
+@mixin pseudo($display: block, $content: '') {
+    content: $content;
+    display: $display;
+}
+
+/* ----- gradient ----- */
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+/* ----- layout ------*/
+::selection {
+  background-color: lighten(color(primary), 50%);
+}
+html, body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: $font-family-normal;
+  font-size: 20px;
+  background-color: lighten(color(primary), 66%);
+}
+
+main {
+  padding-bottom: 75px;
+}
+
+section {
+  width: 90%;
+  @extend %center;
+}
+.article {
+  width: 80%;
+  @extend %center;
+}
+.header {
+  background-color: #fff;
+  border-top: 5px solid color(primary);
+  box-sizing: border-box;
+  box-shadow: 1px 1px 7px lighten(color(secondary), 7%);
+  z-index: 1;
+}
+.wrap {
+  @extend %center;
+  max-width: $layout-max-width;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.footer {
+  height: $footer-hight;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  color: #fff;
+  background-color: darken(color(primary), 5%);
+}
+/* ----- common ------*/
+
+li {
+  display: inline-block;
+}
+
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  @extend %transition;
+
+  &:focus {
+    outline: inherit;
+  }
+  &:hover {
+    color: color(secondary);
+  }
+}
+h1, h2 {
+  margin: 0;
+}
+a {
+  color: #000;
+  text-decoration: inherit;
+}
+
+/* ----- main ------*/
+
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  &__group {
+    margin: 0;
+    display: flex;
+  }
+
+  &__link {
+
+    & + & {
+      margin-left: 40px;
+    }
+
+    a {
+      @extend %transition;
+      position: relative;
+      top: 5px;
+    }
+
+    &:hover > a {
+      top: 0;
+      color: darken(color(secondary), 25%);
+    }
+    &.active > a {
+      color: darken(color(secondary), 25%);
+    }
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+}
+.main__title {
+  font-size: 45px;
+  font-style: italic;
+  font-weight: normal;
+  max-width: 80%;
+  margin: 60px auto 100px;
+  color: color(primary);
+  border-bottom: 1px solid lighten(color(secondary), 5%);
+}
+.sub__title {
+  font-size: 28px;
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+.list {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 60px;
+  @extend %transition;
+
+  &.link {
+    position: relative;
+    border-left: 0 solid lighten(color(primary), 10%);
+    cursor: pointer;
+    display: block;
+    vertical-align:top;
+
+    &:hover {
+      height: 100px;
+      transform: scale(1.05);
+      background-color: #fff;
+      box-shadow: 1px 1px 5px color(secondary);
+      z-index: 10;
+
+      & > .list__title {
+        color: darken(color(primary), 20%);
+      }
+      & > .list__body {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  &__title {
+    font-size: 18px;
+    margin: 10px 5px;
+    @extend %transition;
+  }
+  &__body {
+    opacity: 0;
+    font-size: 14px;
+    margin: 20px 10% 0 5px;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+    overflow: hidden;
+    @extend %transition;
+
+    &::after {
+      @include pseudo(block, '> see more');
+      position: absolute;
+      right: 25px;
+      bottom: 23px;
+      color: color(danger);
+      font-size: 20px;
+    }
+  }
+}
+
+.home {
+
+  .main__title {
+    text-align: right;
+  }
+}
+.page {
+  .sub__title {
+    margin-top: 40px;
+  }
+  .context {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  a {
+    display: block;
+    text-align: center;
+    &:hover {
+      color: color(danger);
+    }
+  }
+}
+
