@@ -261,10 +261,19 @@ ul {
   border: 1px solid transparent;
   @extend %transition;
 
-  .square:hover & {
-    background: darken(color(primary), 20%);
-    opacity: .5;
+  &::before {
+    @include pseudo();
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: 0;
   }
+  .square:hover &::before {
+      background: darken(color(primary), 10%);
+      opacity: .5;
+    }
+
   &.black, &.white {
     box-shadow: 1px 1px 2px color(gray);
   }
