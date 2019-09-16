@@ -214,8 +214,17 @@ ul {
   box-sizing: border-box;
   border: 1px solid transparent;
 }
-.square:hover .piece {
-  background: #ffb16e;
+.piece::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  z-index: 0;
+}
+.square:hover .piece::before {
+  background: #ffcda1;
   opacity: 0.5;
 }
 .piece.black, .piece.white {
