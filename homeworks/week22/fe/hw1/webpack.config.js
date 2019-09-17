@@ -53,7 +53,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    publicPath: '/React-blog',
     openPage: 'React-blog',
   },
   optimization: {
