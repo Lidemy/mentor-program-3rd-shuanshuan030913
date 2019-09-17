@@ -51,13 +51,12 @@ class Blog extends Component {
     };
   }
 
-  componentDidMount = async () => {
-    const dataAPI = await fetch('https://qootest.com/posts')
-      .then(response => response.json());
-
-    this.setState({
-      data: dataAPI,
-    });
+  componentDidMount = () => {
+    fetch('https://qootest.com/posts')
+      .then(response => response.json())
+      .then(json => this.setState({
+        data: json,
+      }));
   }
 
   render() {
@@ -101,13 +100,12 @@ class Home extends Component {
     };
   }
 
-  componentDidMount = async () => {
-    const dataAPI = await fetch('https://qootest.com/posts?_limit=15&_sort=id&_order=desc')
-      .then(response => response.json());
-
-    this.setState({
-      newData: dataAPI,
-    });
+  componentDidMount = () => {
+    fetch('https://qootest.com/posts?_limit=15&_sort=id&_order=desc')
+      .then(response => response.json())
+      .then(json => this.setState({
+        newData: json,
+      }));
   }
 
   render() {
