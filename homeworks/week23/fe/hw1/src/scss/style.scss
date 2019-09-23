@@ -1,0 +1,403 @@
+/* ----- variables ------*/
+
+$colors: (
+  primary : #9f9b0a,
+  secondary: #d8d8d8,
+  gray: #ccc,
+  danger  : #d22222,
+);
+$font-family-title: 'Cormorant', 'Microsoft JhengHei', sans-serif;
+$font-family-normal: 'Quicksand', 'Microsoft JhengHei', sans-serif;
+
+$layout-max-width: 1200px;
+$footer-hight: 25px;
+
+/* ----- function ------*/
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/* ----- extends ------*/
+%transition {
+  transition: all .3s;
+}
+%center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ----- pseudo ----- */
+@mixin pseudo($display: block, $content: '') {
+    content: $content;
+    display: $display;
+}
+
+/* ----- Media queries ----- */
+$breakpoints: (
+    "phone":        360px,
+    "phone-wide":   480px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1200px,
+);
+@mixin mq($width) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+/* ----- layout ------*/
+::selection {
+  background-color: lighten(color(primary), 50%);
+}
+html, body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: $font-family-normal;
+  font-size: 20px;
+  background-color: lighten(color(primary), 66%);
+}
+input:focus, textarea:focus {
+  outline: inherit;
+}
+body::after {
+  @include pseudo;
+  position: absolute;
+  background: url(../images/bg-leaves-b.gif) center bottom no-repeat / contain;
+  width: 100px;
+  height: 180px;
+  bottom: 30px;
+  z-index: 0;
+  right: 30px;
+}
+main {
+  padding-bottom: 75px;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  width: 90%;
+  @extend %center;
+
+  @include mq(phone-wide) {
+    width: 90%;
+  }
+}
+.article {
+  width: 80%;
+  @extend %center;
+  @include mq(phone-wide) {
+    width: 95%;
+  }
+}
+.header {
+  font-family: $font-family-title;
+  background-color: #fff;
+  border-top: 5px solid lighten(color(primary), 7%);
+  box-sizing: border-box;
+  box-shadow: 1px 1px 7px lighten(color(secondary), 7%);
+  z-index: 1;
+}
+.wrap {
+  @extend %center;
+  max-width: $layout-max-width;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.footer {
+  font-family: $font-family-title;
+  height: $footer-hight;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  color: #fff;
+  background-color: darken(color(primary), 5%);
+  @include mq(phone-wide) {
+    font-size: 16px;
+  }
+}
+/* ----- common ------*/
+
+li {
+  display: inline-block;
+}
+
+.btn {
+  font-family: $font-family-title;
+  position: relative;
+  display: inline-block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 5px 15px;
+  margin: 0;
+  border: 0;
+
+  @extend %transition;
+
+  &:focus {
+    outline: inherit;
+  }
+  &:hover {
+    color: color(secondary);
+  }
+  & + & {
+    margin-left: 10px;
+  }
+}
+.btn__primary {
+  border: 1px solid lighten(color(primary), 10%);
+  color: color(primary);
+  background-color: transparent;
+  &:hover {
+    color: #fff;
+    background-color: lighten(color(primary), 10%);
+  }
+}
+.btn__secondary {
+  border: 1px solid darken(color(secondary), 8%);
+  color: darken(color(secondary), 8%);
+  background-color: transparent;
+  &:hover {
+    color: #fff;
+    background-color: darken(color(secondary), 8%);
+  }
+}
+.btn__del {
+  border: 1px solid lighten(color(danger), 15%);
+  color: color(danger);
+  background-color: transparent;
+
+  &:hover {
+    color: #fff;
+    background-color: lighten(color(danger), 15%);
+  }
+}
+.btn__group {
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 0;
+}
+a {
+  cursor: pointer;
+  color: #000;
+  text-decoration: inherit;
+}
+
+/* ----- main ------*/
+
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  &__group {
+    margin: 0;
+    display: flex;
+  }
+
+  &__link {
+
+    & + & {
+      margin-left: 40px;
+
+      @include mq(phone-wide) {
+        margin-left: 20px;
+      }
+    }
+
+    a {
+      @extend %transition;
+      position: relative;
+      top: 5px;
+    }
+
+    &:hover > a {
+      top: 0;
+      color: darken(color(secondary), 25%);
+    }
+    &.active > a {
+      color: darken(color(secondary), 25%);
+    }
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+}
+.main__title {
+  font-family: $font-family-title;
+  position: relative;
+  font-size: 45px;
+  font-style: italic;
+  font-weight: normal;
+  max-width: 80%;
+  margin: 60px auto 75px;
+  color: color(primary);
+  border-bottom: 1px solid lighten(color(secondary), 5%);
+
+  @include mq(phone-wide) {
+    font-size: 40px;
+    min-width: 90%;
+  }
+
+  &::before {
+    @include pseudo;
+    position: absolute;
+    background: url(../images/bg-leaves-t.gif) center bottom no-repeat / contain;
+    width: 40px;
+    height: 90px;
+    top: -60px;
+    left: -50px;
+    z-index: -1;
+
+    @include mq(phone-wide) {
+      left: -10px;
+    }
+  }
+}
+.sub__title {
+  font-family: $font-family-title;
+  font-size: 28px;
+  font-weight: normal;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+.list {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 60px;
+  @extend %transition;
+
+  &.link {
+    position: relative;
+    border-left: 0 solid lighten(color(primary), 10%);
+    cursor: pointer;
+    display: block;
+    vertical-align:top;
+
+    &:hover {
+      height: 100px;
+      transform: scale(1.05);
+      background-color: #fff;
+      box-shadow: 1px 1px 5px color(secondary);
+      z-index: 10;
+
+      & > .list__title {
+        color: darken(color(primary), 20%);
+      }
+      & > .list__body {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  &__title {
+    font-size: 18px;
+    margin: 10px 5px;
+    @extend %transition;
+  }
+  &__body {
+    opacity: 0;
+    font-size: 14px;
+    margin: 20px 100px 0 5px;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+    overflow: hidden;
+    @extend %transition;
+
+    &::after {
+      @include pseudo(block, '> see more');
+      position: absolute;
+      right: 25px;
+      bottom: 23px;
+      color: color(danger);
+      font-size: 16px;
+    }
+  }
+}
+
+
+.row {
+  margin-bottom: 20px;
+}
+
+
+/* ----- pages ------*/
+
+
+.home .main__title {
+  text-align: right;
+}
+
+
+.page {
+  .sub__title {
+    margin-top: 40px;
+    color: darken(color(primary), 10%);
+    small {
+      font-size: 18px;
+      display: block;
+      margin-top: 10px;
+      color: darken(color(primary), 5%);
+    }
+  }
+  .context {
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+  a {
+    font-family: $font-family-title;
+    display: block;
+    text-align: center;
+    @extend %transition;
+    &:hover {
+      color: lighten(color(primary), 10%);
+    }
+  }
+  .row {
+    text-align: right;
+  }
+}
+
+.writing {
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  form {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-element {
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid lighten(color(gray), 5%);
+    display: block;
+    width: 100%;
+  }
+  .btn {
+    font-size: 20px;
+  }
+}
+
