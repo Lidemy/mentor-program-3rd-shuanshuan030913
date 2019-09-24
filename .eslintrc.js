@@ -27,6 +27,7 @@ module.exports = {
     "no-tabs":"off",
     "no-plusplus": "off",
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "no-inner-declarations": "off",
     "padded-blocks": "off",
     "linebreak-style": "off",
     "no-underscore-dangle": "off",
