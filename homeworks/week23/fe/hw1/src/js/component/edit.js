@@ -13,7 +13,7 @@ class Edit extends Component {
   }
 
   componentDidMount = () => {
-    const id = this.props.match.params.Id ? this.props.match.params.Id : '';
+    const id = this.props.match.params.id ? this.props.match.params.id : '';
     if (id) {
       fetch(`https://qootest.com/posts/${id}`)
         .then(response => response.json())
@@ -39,29 +39,46 @@ class Edit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const id = this.props.match.params.Id ? this.props.match.params.Id : '';
+    const id = this.props.match.params.id ? this.props.match.params.id : '';
+    const newData = this.state;
+    const { history } = this.props;
+
     if (id) {
-      fetch(`https://qootest.com/posts/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(this.state),
-      })
-        .catch(error => console.error(error));
+      async function asyncUptPost() {
+        try {
+          await fetch(`https://qootest.com/posts/${id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newData),
+          });
+        } catch (err) {
+          console.log('err', err);
+        }
+        alert('Submit Success!');
+        history.push('/');
+      }
+      asyncUptPost();
 
     } else {
-      fetch('https://qootest.com/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(this.state),
-      })
-        .catch(error => console.error(error));
+      async function asyncNewPost() {
+        try {
+          await fetch('https://qootest.com/posts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newData),
+          });
+        } catch (err) {
+          console.log('err', err);
+        }
+        alert('Submit Success!');
+        history.push('/');
+      }
+      asyncNewPost();
     }
-    alert('Submit Success!');
-    this.props.history.push('/');
   }
 
   render() {
@@ -69,7 +86,7 @@ class Edit extends Component {
     return (
       <main className="writing wrap">
         <h1 className="main__title">
-          { this.props.match.params.Id ? 'Update the post' : 'Create a new post'}
+          { this.props.match.params.id ? 'Update the post' : 'Create a new post'}
         </h1>
         <section>
           <form onSubmit={this.handleSubmit}>
@@ -107,7 +124,7 @@ class Edit extends Component {
             <div className="row btn__group">
               <button className="btn btn__primary" type="submit">Submit</button>
               {
-                this.props.match.params.Id
+                this.props.match.params.id
                   ? (
                     <button
                       className="btn btn__secondary"

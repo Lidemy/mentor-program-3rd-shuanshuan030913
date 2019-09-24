@@ -9,20 +9,29 @@ class Post extends Component {
   }
 
   componentDidMount = () => {
-    const { blogId } = this.props.match.params;
-    fetch(`https://qootest.com/posts/${blogId}`)
+    const { id } = this.props.match.params;
+    fetch(`https://qootest.com/posts/${id}`)
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }
 
   handleDelete = () => {
     if (window.confirm('Sure to delete it?')) {
-      const { blogId } = this.props.match.params;
-      fetch(`https://qootest.com/posts/${blogId}`, {
-        method: 'Delete',
-      });
-      alert('Delete Success!');
-      window.history.back();
+      const { id } = this.props.match.params;
+      const { history } = this.props;
+
+      async function asyncDeletePost() {
+        try {
+          await fetch(`https://qootest.com/posts/${id}`, {
+            method: 'Delete',
+          });
+        } catch (err) {
+          console.log('err', err);
+        }
+        alert('Delete Success!');
+        history.push('/');
+      }
+      asyncDeletePost();
     }
   }
 

@@ -26,9 +26,9 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route exact path="/blog" component={Blog} />
-      <Route path="/blog/:blogId" component={Post} />
-      <Route exact path="/edit" component={Edit} />
-      <Route exact path="/edit/:Id" component={Edit} />
+      <Route path="/blog/:id" component={Post} />
+      <Route exact path="/edit" render={props => <Edit {...props} key="new" />} />
+      <Route exact path="/edit/:id" render={props => <Edit {...props} key="update" />} />
       <Route component={NoMatch} />
     </Switch>
     <footer className="footer">
