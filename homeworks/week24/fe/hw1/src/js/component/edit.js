@@ -24,7 +24,7 @@ class Edit extends Component {
     if (post !== prevProps.post) {
       this.handlePropsToState();
     }
-    if (editDone) {
+    if (editDone !== prevProps.editDone && editDone) {
       history.push(`/blog/${post.id}`);
       updateNav('/blog');
     }

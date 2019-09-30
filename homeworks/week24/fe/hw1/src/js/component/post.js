@@ -11,9 +11,9 @@ class Post extends Component {
     this.props.getPost(id);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const { editDone, history, updateNav } = this.props;
-    if (editDone) {
+    if (editDone !== prevProps.editDone && editDone) {
       history.push('/');
       updateNav('/');
     }
