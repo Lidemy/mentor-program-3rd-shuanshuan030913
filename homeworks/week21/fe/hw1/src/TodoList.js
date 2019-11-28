@@ -20,7 +20,11 @@ class TodoList extends Component {
       this.setState({
         todos: currentTodos,
       });
-      this.id = currentTodos[currentTodos.length - 1].id + 1;
+      if (currentTodos.length === 0) {
+        this.id = 1;
+      } else {
+        this.id = currentTodos[currentTodos.length - 1].id + 1;
+      }
     }
   }
 
@@ -38,7 +42,7 @@ class TodoList extends Component {
 
   handleKeyDown = (e) => {
     const { todos, todoText } = this.state;
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && todoText !== '') {
       this.setState({
         todos: [...todos, {
           id: this.id,

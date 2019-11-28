@@ -17,12 +17,12 @@ $stmt->execute();
 
 > 在別人的網頁上執行 JavaScript
 
-以留言板為例，再輸入文字內容的區塊寫上程式碼，便可以對這個網站做任何事
+以留言板為例，在輸入文字內容的區塊寫上程式碼，便可以對這個網站做任何事
 
 例如輸入 `<script>window.location.href='惡意網址'</script>`，就可以讓每個進入這個留言版的使用者都被強制跳轉到惡意網址上
 
 
-### 防範方法：使用 escape　跳脫字元
+### 防範方法：使用 escape 跳脫字元
 
 ```
 echo htmlspecialchars($str, ENT_QUOTES, 'utf-8');

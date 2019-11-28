@@ -10,14 +10,14 @@
 就是 CSS 給一個物件定義的框，並定義內距、外距、邊線、內容的長寬會受到內距和邊線的影響，必須了解這個模型的規則才能有效的寫出好的 CSS 語法。
 
 * box 預設的長寬等於 content + padding + border
-* 想要瀏覽器自動幫我們把 content + padding + border 算在一起的話，就使用 `box-sizing: border-box;`
+* 如果要讓瀏覽器自動幫我們計算(固定寬度)，就使用`box-sizing: border-box;`
 
 
 ## 請問 display: inline, block 跟 inline-block 的差別是什麼？
 
 * `inline` 讓標籤內容可以排在同一個橫排內，margin 和 padding 只對自己有作用（左右可以影響左右元素），影響不到上下行其他物件
 * `block` 自己獨佔一排
-* `inline` inline 和 block 的綜合體，讓物件可以並排又可以占用高度，會因為 html 中間的空白而產生空白，這點要注意
+* `inline-block` inline 和 block 的綜合體，讓物件可以並排又可以占用高度，會因為 html 中間的空白而產生空白，這點要注意
 
 ## 請問 position: static, relative, absolute 跟 fixed 的差別是什麼？
 
